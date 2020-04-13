@@ -32,6 +32,16 @@ SELECT name FROM users WHERE length(name) > 4
 *   .length;
 
 *   .push(element); // add last and return new length
+```
+var people = [
+  {name: 'Amir'},
+  {name: 'Betty'},
+]
+var names = []
+for (var i=0; i<people.length; i++) {
+  names.push(people[i].name)
+}
+```
 
 *   .pop(); // remove and return last element 
 
@@ -44,6 +54,45 @@ var copy = orig.slice()
 copy[0] = 1
 ```    
 
+* forEach 
+>   executes a function once for each element in an array . The second argument to forEach's callback is the item's index.
+```
+var nums = [1, 2, 3]
+var sum = 0
+nums.forEach(num => {
+  sum = sum + num
+})
+sum
+```
+```
+var people = [
+  {name: 'Cindy'},
+  {name: 'Dalili'},
+]
+var names = []
+people.forEach(person => {
+  names.push(person.name)
+})
+```
+```
+var people = [
+  {name: 'Ebony'},
+  {name: 'Fang'},
+]
+people.forEach(person => {
+  person.name = person.name.toUpperCase()
+})
+people[0].name
+```
+```
+var names = ['Gabriel', 'Hana']
+var userIDs = [10, 11]
+var result = ''
+names.forEach((name, index) => {
+  result += name + userIDs[index]
+})
+result
+```
 ---
 
 # Modern Javascript 

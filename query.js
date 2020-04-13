@@ -52,3 +52,25 @@ function at(arr, i) {
     }
       
   }
+
+
+
+  // Equality
+
+function eql(arr1,arr2){
+  if(arr1.length == arr2.length){
+    var newArray = [];
+    arr1.forEach((element,index)=>{
+      if(element === arr2[index]){
+        newArray.push(true);
+      } else {
+        newArray.push(false);
+      }
+    })
+    
+  } else {
+    return false;
+  }
+  return newArray.every(element=>{return element==true});
+}
+
