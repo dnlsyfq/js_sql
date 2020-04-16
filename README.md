@@ -17,6 +17,13 @@ Data Type
 ```
 SELECT name FROM users WHERE length(name) > 4
 ```
+* UPDATE
+```
+UPDATE table SET column = new value WHERE column = value
+```
+
+
+
 ---
 # JS Array 
 

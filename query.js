@@ -74,3 +74,14 @@ function eql(arr1,arr2){
   return newArray.every(element=>{return element==true});
 }
 
+// Count
+
+function count(arr,callback){
+	var newArr = [];
+	arr.forEach(e => {
+		newArr.push(callback(e));
+	})
+
+	var t = newArr.filter(i => i == true)
+	return t.length
+}
