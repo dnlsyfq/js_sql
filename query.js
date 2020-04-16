@@ -85,3 +85,36 @@ function count(arr,callback){
 	var t = newArr.filter(i => i == true)
 	return t.length
 }
+
+// square 
+
+function square(nums) {
+  return nums.map(num => num*num)
+}
+
+// Add Exclamation
+
+function f(strings) {
+  return strings.map(string => string + '!')
+}
+
+//Implement uniq
+
+function uniq(arr) {
+  var newArr = [];
+  arr.forEach(i => {
+    if(! newArr.includes(i)){
+      newArr.push(i);
+    } 
+  })
+  return newArr;
+}
+
+// Fill dynamically
+
+function fillDynamically(value, length) {
+  var arr = new Array(length).fill(value)
+  return arr
+}
+
+

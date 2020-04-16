@@ -38,6 +38,48 @@ UPDATE table SET column = new value WHERE column = value
 
 *   .length;
 
+*   .slice();
+>   slice from the end of the array by using negative indexes . slice past the end of the array, return [] . return array
+
+*   .concat(array)
+> '+' JavaScript will convert the arrays into strings before adding them. so use .concat. concat builds and returns a new array. The original arrays aren't changed.
+```
+[1, 2].concat([3, 4], [5, 6])
+array.concat(element)
+```
+* .indexOf(element)
+> ask an array for the index of a particular element. return index of element. ask for an element that isn't in the array, we get -1.
+```
+var abc = ['a', 'b', 'c']
+abc.slice(abc.indexOf('b'))
+
+var abc = ['a', 'b', 'c']
+function sliceFromElement(array, element) {
+  var index = array.indexOf(element)
+  if (index === -1) {
+    return null
+  } else {
+    return array.slice(index)
+  }
+}
+sliceFromElement(abc, 'd')
+```
+* .fill(element)
+> fill method fills an array with a given value. Any existing values will be overwritten by that value. return array
+```
+var a = [1, 2]
+a.fill(3) // [3,3]
+
+
+var size = 1 + 2
+new Array(size).fill('d')
+
+function fillDynamically(size) {
+  return new Array(size).fill('d')
+}
+fillDynamically(2)
+```
+
 *   .push(element); // add last and return new length
 ```
 var people = [
@@ -60,6 +102,14 @@ var orig = [10, 20, 30]
 var copy = orig.slice()
 copy[0] = 1
 ```    
+*   .includes(element)
+> check for whether an array includes a given element.
+```
+array.includes(element)
+
+['a', 'b'].includes('c')
+```
+
 
 * forEach 
 >   executes a function once for each element in an array . The second argument to forEach's callback is the item's index.
@@ -100,6 +150,34 @@ names.forEach((name, index) => {
 })
 result
 ```
+
+* Object to Array
+
+```
+var people = [
+  {name: 'Cindy'},
+  {name: 'Dalili'},
+]
+var names = []
+people.forEach(person => {
+  names.push(person.name)
+})
+
+
+```
+
+* map
+
+> calls a function on each element of an array. It returns a new array of the values returned from those function calls. doesn't change the original array.
+
+```
+var people = [
+  {name: 'Amir'},
+  {name: 'Betty'},
+]
+people.map(person => person.name)
+```
+
 ---
 
 # Modern Javascript 
@@ -115,4 +193,26 @@ delete the Object.prototype property will cause an error. (Deleting that propert
 git remote add origin https://github.com/dnlsyfq/js_sql.git
 
 git push -u origin master
+```
+
+* let
+> With let, a variable defined inside the if isn't visible outside the if.
+```
+# let handles nested scopes properly. For example, we can define an x in the function body, then define another x inside an if. Changing the "inner" x won't change the "outer" x.
+
+function f() {
+  let x = 'outer'
+  if (true) {
+    let x = 'inner'
+  }
+  return x
+}
+f()
+
+ Any code contained in { curly braces } will have its own scope.
+```
+* const 
+> const variable can never be reassigned. If we try to assign a new value to it, that's an error
+```
+# can mutate a const array by calling its push method. However, reassigning the array variable to hold a new array isn't allowed.
 ```
