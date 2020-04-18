@@ -22,7 +22,56 @@ SELECT name FROM users WHERE length(name) > 4
 UPDATE table SET column = new value WHERE column = value
 ```
 
+* SELECT EXPR
+```
+exec(`SELECT 1`)
+[{'1': 1}] 
 
+
+exec(`SELECT DATE('now') > DATE(0)`)
+[{"DATE('now') > DATE(0)": 1}] 
+```
+
+* Unique constraints
+> use the UNIQUE keyword to tell the database to enforce that rule for us. Inserting a duplicate value into a UNIQUE column is an error
+```
+UNIQUE constraint on the email address, but not the name. It will reject users with the same email address, even if their names are different.
+
+
+exec(`CREATE TABLE users (email TEXT UNIQUE, name TEXT)`)
+exec(`INSERT INTO users (email, name) VALUES ('amir@example.com', 'Amir')`)
+exec(`INSERT INTO users (email, name) VALUES ('amir@example.com', 'Amir')`)
+
+```
+```
+-- create table with multiple column unique constraint
+
+exec(`
+  CREATE TABLE emails (
+    username TEXT,
+    domain TEXT,
+    UNIQUE (username, domain)
+  )
+`)
+exec(`INSERT INTO emails (username, domain) VALUES ('amir', 'example.com')`)
+exec(`INSERT INTO emails (username, domain) VALUES ('betty', 'example.com')`)
+
+```
+
+* DELETE 
+
+```
+DELETE FROM <TABLE>
+
+exec(`DELETE FROM users WHERE name = 'Betty'`)
+```
+* DEFAULT
+```
+CREATE TABLE users (
+    name TEXT,
+    login_count INTEGER NOT NULL DEFAULT 0
+  );
+```
 
 ---
 # JS Array 
