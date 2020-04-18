@@ -127,6 +127,11 @@ function fillDynamically(size) {
   return new Array(size).fill('d')
 }
 fillDynamically(2)
+
+
+
+
+
 ```
 
 *   .push(element); // add last and return new length
